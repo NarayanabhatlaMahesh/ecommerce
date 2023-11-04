@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+{% load static %}
+      {% block info %}
+    <div class="indent">
+      <div class="card-deck">
+        <form method="post" class="card-deck" id="s" >
+          {% csrf_token %}
+          {% for i,j,k,l,n,m,o,p in products %}
+              <div class="card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; border-radius: 20px;" >
+                <div class="card-body">
+                  <img class="card-img-top" src="{% static o %}" alt="Card image cap">
+                  <h4 id="name">{{i}}</h4>
+                  <p class="card-text">  
+                    <p>{{j}} ₹</p>
+                    <p>{{k}}</p>
+                    <p>buy before {{m}}</p>
+                  </p>
+                </div >    <div  style="padding-left: 30%; "> <input class="hover" type="submit" name="{{i}}" value ="get this item" style="border-radius: 20px;margin-bottom: 5px; width: 65%; " /> </div>
+              </div>
+              
+            
+          {% endfor %}
+        </form>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block script %}
+    function submit(){
+      const c=document.getElementById('name');
+    }
+    {% endblock %}
+
+  </body>
+  </html>
