@@ -1,12 +1,21 @@
 {% extends 'header.html' %}
 {% load static %}
       {% block info %}
-    <div class="indent">
+      <div>
+        <img src="{% static '6526.jpg' %}" alt=""  style="width:100%; max-width: 100%;max-height: 0%;height: 0%;">
+      </div>
+        <div>
+          <div style="padding-left: 40%;" >
+            <h1>Buy products</h1>
+          </div>
+        </div>
+    <div class="indent" style="padding-left: 15%;padding-right: 10%;">
       <div class="card-deck">
-        <form method="post" class="card-deck" id="s" >
+        <form method="post" class="card-deck" id="s" style="margin: 5%;" >
           {% csrf_token %}
           {% for i,j,k,l,n,m,o,p in products %}
-              <div class="card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; border-radius: 20px;" >
+          <div style="display: grid;  grid-gap: 10px;grid-template-columns: repeat(auto-fit, minmax(125px, auto) )" >
+              <div class="card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; border-radius: 20px; width: 250px; max-width: 400px; " >
                 <div class="card-body">
                   <img class="card-img-top" src="{% static o %}" alt="Card image cap">
                   <h4 id="name">{{i}}</h4>
@@ -17,12 +26,14 @@
                   </p>
                 </div >    <div  style="padding-left: 30%; "> <input class="hover" type="submit" name="{{i}}" value ="get this item" style="border-radius: 20px;margin-bottom: 5px; width: 65%; " /> </div>
               </div>
+            </div>
               
             
           {% endfor %}
         </form>
       </div>
     </div>
+    
     {% endblock %}
 
     {% block script %}
